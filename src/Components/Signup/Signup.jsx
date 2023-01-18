@@ -13,7 +13,7 @@ import {
   import { useState } from "react";
   
   import { Link,useNavigate } from "react-router-dom";
-  import axios from "axios";
+
   import { FcGoogle } from "react-icons/fc";
   import { BsFacebook } from "react-icons/bs";
 
