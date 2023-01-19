@@ -1,0 +1,15 @@
+export const colors = [
+     { name: "Black", value: "#000" },
+     { name: "Blue", value: "blue" },
+     { name: "Brown", value: "brown" },
+     { name: "Gray", value: "gray" },
+     { name: "Green", value: "green" },
+     { name: "Metallic", value: "#ECECEC" },
+     { name: "Natural", value: "#F5E6D6" },
+     { name: "Orange", value: "#FA7D54" },
+     { name: "Pink", value: "pink" },
+     { name: "Purple", value: "purple" },
+     { name: "Red", value: "red" },
+     { name: "White", value: "#FFFFFF" },
+     { name: "Yellow", value: "yellow" },
+];
