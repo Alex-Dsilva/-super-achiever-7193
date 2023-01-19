@@ -134,14 +134,14 @@ import {
                   <Button
                     variant="outline"
                     colorScheme={"#50b6ff"}
-                    // onClick={handlegoogleSignUp}
+                    onClick={handlegoogleSignUp}
                   >
                     <FcGoogle />
                   </Button>
                  
                 </Box>
                 <Button 
-                // onClick={handleFacebookSignUp} 
+                onClick={handleFacebookSignUp} 
                 variant="outline" colorScheme={"#50b6ff"}>
                   <BsFacebook />
                 </Button>

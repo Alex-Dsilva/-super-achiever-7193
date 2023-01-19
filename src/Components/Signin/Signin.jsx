@@ -17,7 +17,7 @@ import {
   
   import { FcGoogle } from "react-icons/fc";
   import { BsFacebook } from "react-icons/bs";
-  // import { AuthContext } from "../context/AppContext";
+  import { AuthContext } from "../SignupLoginComp/context/Appcontext";
   import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -28,7 +28,7 @@ import axios from "axios";
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    // const { googleSignIn, facebookSignIn,userLogin,setUserName} = useContext(AuthContext);
+    const { googleSignIn, facebookSignIn,userLogin,setUserName} = useContext(AuthContext);
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const toast =useToast()
