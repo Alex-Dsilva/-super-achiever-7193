@@ -10,12 +10,13 @@ import {
     Text,
     useToast
   } from "@chakra-ui/react";
-  import { useState } from "react";
+  import { useContext,useState } from "react";
   
   import { Link,useNavigate } from "react-router-dom";
-
+  import axios from "axios";
   import { FcGoogle } from "react-icons/fc";
   import { BsFacebook } from "react-icons/bs";
+  import { AuthContext } from "../SignupLoginComp/context/Appcontext";
 
   
   export default function Signup() {
@@ -23,7 +24,8 @@ import {
     const [name, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    const { googleSignIn, facebookSignIn } = useContext(AuthContext);
+    const navigateUser=useNavigate()
 
     const toast =useToast()
     const handleSubmit = (e) => {
@@ -35,7 +37,66 @@ import {
         
       }
       
+          axios.post("https://coral-perch-cuff.cyclic.app/signup",payload).then((res)=>{
+        console.log(res.data);
+        toast({
+          title:res.data.msg
+        })
+        if(res.status===200){
+          navigateUser("/login")
+        }
+        else{
+          toast({
+            title:"Please Signup with correct credentials"
+          })
+        }
+        
+      })
+      // alert("SIGN UP SUCCESSFULL");
+    };
+    const handlegoogleSignUp = async (e) => {
+      e.preventDefault();
+      try {
+     const user= await googleSignIn();
+     console.log("from signup",user);
+     if(user.user.email!==undefined){
+      const payload={
+        name:user.user.displayName,
+        email:user.user.email,
+        password:`${user.user.displayName.split(" ")[0]}@byme`
+      }
+      axios.post("https://coral-perch-cuff.cyclic.app/signup",payload).then((res)=>{
+        console.log(res.data)
+          if(res.status===200){
+           const  login_payload={
+            email:user.user.email,
+        password:`${user.user.displayName.split(" ")[0]}@byme`
+           }
+            axios.post("https://coral-perch-cuff.cyclic.app/login",login_payload).then((res)=>{
+              
+            })
+          }
+        })
     }
+    navigateUser("/");
+     toast({
+        position : 'top',
+        colorScheme : 'green', 
+        status : "success",
+        title:"Login sucessfully "
+    })
+        
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    const handleFacebookSignUp = async (e) => {
+      e.preventDefault();
+      try {
+        await facebookSignIn();
+        navigateUser("/profile");
+      } catch (err) {}
+    };
 
   
     return (
