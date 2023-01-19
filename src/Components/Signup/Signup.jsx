@@ -16,7 +16,7 @@ import {
   import axios from "axios";
   import { FcGoogle } from "react-icons/fc";
   import { BsFacebook } from "react-icons/bs";
-  import { AuthContext } from "../SignupLoginComp/context/Appcontext";
+  // import { AuthContext } from "../SignupLoginComp/context/Appcontext";
 
   
   export default function Signup() {
@@ -24,7 +24,7 @@ import {
     const [name, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const { googleSignIn, facebookSignIn } = useContext(AuthContext);
+    // const { googleSignIn, facebookSignIn } = useContext(AuthContext);
     const navigateUser=useNavigate()
 
     const toast =useToast()
@@ -54,49 +54,49 @@ import {
       })
       // alert("SIGN UP SUCCESSFULL");
     };
-    const handlegoogleSignUp = async (e) => {
-      e.preventDefault();
-      try {
-     const user= await googleSignIn();
-     console.log("from signup",user);
-     if(user.user.email!==undefined){
-      const payload={
-        name:user.user.displayName,
-        email:user.user.email,
-        password:`${user.user.displayName.split(" ")[0]}@byme`
-      }
-      axios.post("https://coral-perch-cuff.cyclic.app/signup",payload).then((res)=>{
-        console.log(res.data)
-          if(res.status===200){
-           const  login_payload={
-            email:user.user.email,
-        password:`${user.user.displayName.split(" ")[0]}@byme`
-           }
-            axios.post("https://coral-perch-cuff.cyclic.app/login",login_payload).then((res)=>{
+    // const handlegoogleSignUp = async (e) => {
+    //   e.preventDefault();
+    //   try {
+    //  const user= await googleSignIn();
+    //  console.log("from signup",user);
+    //  if(user.user.email!==undefined){
+    //   const payload={
+    //     name:user.user.displayName,
+    //     email:user.user.email,
+    //     password:`${user.user.displayName.split(" ")[0]}@byme`
+    //   }
+    //   axios.post("https://coral-perch-cuff.cyclic.app/signup",payload).then((res)=>{
+    //     console.log(res.data)
+    //       if(res.status===200){
+    //        const  login_payload={
+    //         email:user.user.email,
+    //     password:`${user.user.displayName.split(" ")[0]}@byme`
+    //        }
+    //         axios.post("https://coral-perch-cuff.cyclic.app/login",login_payload).then((res)=>{
               
-            })
-          }
-        })
-    }
-    navigateUser("/");
-     toast({
-        position : 'top',
-        colorScheme : 'green', 
-        status : "success",
-        title:"Login sucessfully "
-    })
+    //         })
+    //       }
+    //     })
+    // }
+    // navigateUser("/");
+    //  toast({
+    //     position : 'top',
+    //     colorScheme : 'green', 
+    //     status : "success",
+    //     title:"Login sucessfully "
+    // })
         
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-    const handleFacebookSignUp = async (e) => {
-      e.preventDefault();
-      try {
-        await facebookSignIn();
-        navigateUser("/profile");
-      } catch (err) {}
-    };
+    //   } catch (error) {
+    //     console.log(error.message);
+    //   }
+    // };
+    // const handleFacebookSignUp = async (e) => {
+    //   e.preventDefault();
+    //   try {
+    //     await facebookSignIn();
+    //     navigateUser("/profile");
+    //   } catch (err) {}
+    // };
 
   
     return (
@@ -134,14 +134,14 @@ import {
                   <Button
                     variant="outline"
                     colorScheme={"#50b6ff"}
-                    onClick={handlegoogleSignUp}
+                    // onClick={handlegoogleSignUp}
                   >
                     <FcGoogle />
                   </Button>
                  
                 </Box>
                 <Button 
-                onClick={handleFacebookSignUp} 
+                // onClick={handleFacebookSignUp} 
                 variant="outline" colorScheme={"#50b6ff"}>
                   <BsFacebook />
                 </Button>

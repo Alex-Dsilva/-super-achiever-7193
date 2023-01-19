@@ -33,6 +33,88 @@ import axios from "axios";
     const [loading, setLoading] = useState(false);
     const toast =useToast()
     
+        const handleSubmit =async (e) => {
+      e.preventDefault();
+      setError("")
+      setLoading(true);
+      const payload={
+        email,
+        password
+      }
+       await  axios.post("https://coral-perch-cuff.cyclic.app/login", payload).then((res)=>{
+        setUserName(res.data.displayName)
+        const user=(res)
+        userLogin(res.data.token)
+        toast({
+          position : 'top',
+          colorScheme : 'green', 
+          status : "success",
+          title:res.data.msg
+        })
+        if(res.data.token){
+          localStorage.setItem("logintoken",res.data.token)
+          navigate(res.data.administration === true ? '/admin' : '/')
+        }
+        else{
+         navigate("/  ")
+        }
+        console.log(user)
+        setLoading(false)
+      })
+    };
+    const handleGoogleLogin = async (e) => {
+      e.preventDefault();
+      try {
+     const user= await googleSignIn();
+     if(user.user.email!==undefined){
+      const payload={
+        name:user.user.displayName,
+        email:user.user.email,
+        password:`${user.user.displayName.split(" ")[0]}@byme`
+      }
+      axios.post("https://coral-perch-cuff.cyclic.app/signup",payload).then((res)=>{
+        console.log(res.data)
+          if(res.status===200){
+           const  login_payload={
+            email:user.user.email,
+        password:`${user.user.displayName.split(" ")[0]}@byme`
+           }
+            axios.post("https://coral-perch-cuff.cyclic.app/login",login_payload).then((res)=>{
+              
+            })
+          }
+        })
+    }
+    navigate("/");
+     toast({
+        position : 'top',
+        colorScheme : 'green', 
+        status : "success",
+        title:"Login sucessfully "
+    })
+        
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+  
+
+    const handleFBlogin = async (e) => {
+      e.preventDefault();
+      try {
+       const fbuser= await facebookSignIn();
+       console.log(fbuser);
+       toast({
+        position : 'top',
+        colorScheme : 'green', 
+        status : "success",
+        title:"Login sucessfully "
+      })
+        navigate("/");
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
   
   
     return (
@@ -57,7 +139,7 @@ import axios from "axios";
             <br />
             <Box></Box>
             <form 
-            // onSubmit={handleSubmit}
+            onSubmit={handleSubmit}
             >
               {error && (
                 <Alert status="error">
@@ -125,14 +207,14 @@ import axios from "axios";
                   >
                     <Box>
                       <Button 
-                      // onClick={handleGoogleLogin} 
+                      onClick={handleGoogleLogin} 
                       variant="outline" colorScheme={"#50b6ff"}>
                         <FcGoogle />
                       </Button>
                     </Box>
                     <Box>
                       <Button 
-                      // onClick={handleFBlogin}
+                      onClick={handleFBlogin}
                        variant="outline" colorScheme={"#50b6ff"}>
                         <BsFacebook />
                       </Button>
