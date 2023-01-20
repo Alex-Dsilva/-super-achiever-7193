@@ -17,7 +17,7 @@ import {
   
   import { FcGoogle } from "react-icons/fc";
   import { BsFacebook } from "react-icons/bs";
-  // import { AuthContext } from "../SignupLoginComp/context/Appcontext";
+
   import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -28,7 +28,7 @@ import axios from "axios";
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    // const { googleSignIn, facebookSignIn,userLogin,setUserName} = useContext(AuthContext);
+
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const toast =useToast()
@@ -41,10 +41,10 @@ import axios from "axios";
         email,
         password
       }
-       await  axios.post("https://coral-perch-cuff.cyclic.app/login", payload).then((res)=>{
-        setUserName(res.data.displayName)
+       await  axios.post("http://localhost:8080/users/login", payload).then((res)=>{
+        // setUserName(res.data.displayName)
         const user=(res)
-        userLogin(res.data.token)
+        // userLogin(res.data.token)
         toast({
           position : 'top',
           colorScheme : 'green', 
