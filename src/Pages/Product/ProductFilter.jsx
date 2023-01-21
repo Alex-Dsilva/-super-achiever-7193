@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
      Accordion,
      AccordionItem,
@@ -9,18 +9,38 @@ import {
 } from "@chakra-ui/react";
 import { Checkbox, CheckboxGroup } from "@chakra-ui/react";
 import "./ProductFilter.css";
-import { getProduct } from "../../Redux/AppReducer/action";
+import { useSearchParams } from "react-router-dom";
 
 const ProdtctFilter = () => {
-     const handleChange = () => {
-          //
+     const [searchParams, setSearchParams] = useSearchParams();
+
+     const initialProductBrand = searchParams.getAll("productBrand");
+
+     const [productBrand, setProductBrand] = useState(
+          initialProductBrand || []
+     );
+
+     const handleChange = (e) => {
+          const newProductBrand = [...productBrand];
+          // console.log("newProductBrand", newProductBrand);
+          if (newProductBrand.includes(e.target.value)) {
+               newProductBrand.splice(
+                    newProductBrand.indexOf(e.target.value),
+                    1
+               );
+          } else {
+               newProductBrand.push(e.target.value);
+          }
+          setProductBrand(newProductBrand);
      };
-     const handleChange1 = () => {
-          //
-     };
+
      useEffect(() => {
-          getProduct();
-     });
+          let params = {};
+          params.productBrand = productBrand;
+          console.log("params", params);
+          setSearchParams(params);
+     }, [productBrand, setSearchParams]);
+
      return (
           <div
                style={{
@@ -61,7 +81,7 @@ const ProdtctFilter = () => {
                     <Accordion defaultIndex={[0]} allowMultiple>
                          {/* Department Accordion*/}
 
-                         <AccordionItem id="div" mb="10px">
+                         {/* <AccordionItem id="div" mb="10px">
                               <h2>
                                    <AccordionButton>
                                         <Box flex="1" textAlign="left">
@@ -155,7 +175,7 @@ const ProdtctFilter = () => {
                                         </Box>
                                    </CheckboxGroup>
                               </AccordionPanel>
-                         </AccordionItem>
+                         </AccordionItem> */}
 
                          {/* Brand Accordion*/}
                          <AccordionItem mb="10px">
@@ -176,31 +196,40 @@ const ProdtctFilter = () => {
                                              direction={["column", "row"]}
                                         >
                                              <Checkbox
-                                                  onChange={handleChange1}
+                                                  onChange={handleChange}
                                                   value="Woodland"
+                                                  checked={productBrand.includes(
+                                                       "Woodland"
+                                                  )}
                                              >
                                                   <span className="checkboxtext">
                                                        Woodland
                                                   </span>
                                              </Checkbox>
                                              <Checkbox
-                                                  onChange={handleChange1}
+                                                  onChange={handleChange}
                                                   value="U.S. Polo Assn"
+                                                  checked={productBrand.includes(
+                                                       "U.S. Polo Assn"
+                                                  )}
                                              >
                                                   <span className="checkboxtext">
                                                        U.S. Polo Assn
                                                   </span>
                                              </Checkbox>
                                              <Checkbox
-                                                  onChange={handleChange1}
+                                                  onChange={handleChange}
                                                   value="Puma"
+                                                  checked={productBrand.includes(
+                                                       "Puma"
+                                                  )}
                                              >
                                                   <span className="checkboxtext">
                                                        Puma
                                                   </span>
                                              </Checkbox>
                                              <Checkbox
-                                                  onChange={handleChange1}
+                                                  // onChange={handleChange}
                                                   value="Samsung"
                                              >
                                                   <span className="checkboxtext">
@@ -208,7 +237,7 @@ const ProdtctFilter = () => {
                                                   </span>
                                              </Checkbox>
                                              <Checkbox
-                                                  onChange={handleChange1}
+                                                  // onChange={handleChange}
                                                   value="Apple"
                                              >
                                                   <span className="checkboxtext">
@@ -216,7 +245,7 @@ const ProdtctFilter = () => {
                                                   </span>
                                              </Checkbox>
                                              <Checkbox
-                                                  onChange={handleChange1}
+                                                  // onChange={handleChange}
                                                   value="Asus"
                                              >
                                                   <span className="checkboxtext">
@@ -224,7 +253,7 @@ const ProdtctFilter = () => {
                                                   </span>
                                              </Checkbox>
                                              <Checkbox
-                                                  onChange={handleChange1}
+                                                  // onChange={handleChange}
                                                   value="Boat"
                                              >
                                                   <span className="checkboxtext">
@@ -232,7 +261,7 @@ const ProdtctFilter = () => {
                                                   </span>
                                              </Checkbox>
                                              <Checkbox
-                                                  onChange={handleChange1}
+                                                  // onChange={handleChange}
                                                   value="Ray-Ban"
                                              >
                                                   <span className="checkboxtext">
@@ -240,7 +269,7 @@ const ProdtctFilter = () => {
                                                   </span>
                                              </Checkbox>
                                              <Checkbox
-                                                  onChange={handleChange1}
+                                                  // onChange={handleChange}
                                                   value="O3+"
                                              >
                                                   <span className="checkboxtext">
@@ -248,7 +277,7 @@ const ProdtctFilter = () => {
                                                   </span>
                                              </Checkbox>
                                              <Checkbox
-                                                  onChange={handleChange1}
+                                                  // onChange={handleChange}
                                                   value="VLCC"
                                              >
                                                   <span className="checkboxtext">
@@ -256,7 +285,7 @@ const ProdtctFilter = () => {
                                                   </span>
                                              </Checkbox>
                                              <Checkbox
-                                                  onChange={handleChange1}
+                                                  // onChange={handleChange}
                                                   value="Ustraa"
                                              >
                                                   <span className="checkboxtext">
@@ -286,7 +315,7 @@ const ProdtctFilter = () => {
                                              direction={["column", "row"]}
                                         >
                                              <Checkbox
-                                                  onChange={handleChange1}
+                                                  // onChange={handleChange}
                                                   value="Woodland"
                                              >
                                                   <span className="checkboxtext">
@@ -294,7 +323,7 @@ const ProdtctFilter = () => {
                                                   </span>
                                              </Checkbox>
                                              <Checkbox
-                                                  onChange={handleChange1}
+                                                  // onChange={handleChange}
                                                   value="U.S. Polo Assn"
                                              >
                                                   <span className="checkboxtext">
@@ -302,7 +331,7 @@ const ProdtctFilter = () => {
                                                   </span>
                                              </Checkbox>
                                              <Checkbox
-                                                  onChange={handleChange1}
+                                                  // onChange={handleChange}
                                                   value="Puma"
                                              >
                                                   <span className="checkboxtext">
@@ -310,7 +339,7 @@ const ProdtctFilter = () => {
                                                   </span>
                                              </Checkbox>
                                              <Checkbox
-                                                  onChange={handleChange1}
+                                                  // onChange={handleChange}
                                                   value="Samsung"
                                              >
                                                   <span className="checkboxtext">
@@ -318,7 +347,7 @@ const ProdtctFilter = () => {
                                                   </span>
                                              </Checkbox>
                                              <Checkbox
-                                                  onChange={handleChange1}
+                                                  // onChange={handleChange}
                                                   value="Apple"
                                              >
                                                   <span className="checkboxtext">
@@ -326,7 +355,7 @@ const ProdtctFilter = () => {
                                                   </span>
                                              </Checkbox>
                                              <Checkbox
-                                                  onChange={handleChange1}
+                                                  // onChange={handleChange}
                                                   value="Asus"
                                              >
                                                   <span className="checkboxtext">
@@ -334,7 +363,7 @@ const ProdtctFilter = () => {
                                                   </span>
                                              </Checkbox>
                                              <Checkbox
-                                                  onChange={handleChange1}
+                                                  // onChange={handleChange}
                                                   value="Boat"
                                              >
                                                   <span className="checkboxtext">
@@ -342,7 +371,7 @@ const ProdtctFilter = () => {
                                                   </span>
                                              </Checkbox>
                                              <Checkbox
-                                                  onChange={handleChange1}
+                                                  // onChange={handleChange}
                                                   value="Ray-Ban"
                                              >
                                                   <span className="checkboxtext">
@@ -350,7 +379,7 @@ const ProdtctFilter = () => {
                                                   </span>
                                              </Checkbox>
                                              <Checkbox
-                                                  onChange={handleChange1}
+                                                  // onChange={handleChange}
                                                   value="O3+"
                                              >
                                                   <span className="checkboxtext">
@@ -358,7 +387,7 @@ const ProdtctFilter = () => {
                                                   </span>
                                              </Checkbox>
                                              <Checkbox
-                                                  onChange={handleChange1}
+                                                  // onChange={handleChange}
                                                   value="VLCC"
                                              >
                                                   <span className="checkboxtext">
@@ -366,7 +395,7 @@ const ProdtctFilter = () => {
                                                   </span>
                                              </Checkbox>
                                              <Checkbox
-                                                  onChange={handleChange1}
+                                                  // onChange={handleChange}
                                                   value="Ustraa"
                                              >
                                                   <span className="checkboxtext">
@@ -398,7 +427,7 @@ const ProdtctFilter = () => {
                                              direction={["column", "row"]}
                                         >
                                              <Checkbox
-                                                  onChange={handleChange}
+                                                  // onChange={handleChange}
                                                   value="men"
                                              >
                                                   <span className="checkboxtext">
@@ -406,7 +435,7 @@ const ProdtctFilter = () => {
                                                   </span>
                                              </Checkbox>
                                              <Checkbox
-                                                  onChange={handleChange}
+                                                  // onChange={handleChange}
                                                   value="mobile phones"
                                              >
                                                   <span className="checkboxtext">
@@ -414,7 +443,7 @@ const ProdtctFilter = () => {
                                                   </span>
                                              </Checkbox>
                                              <Checkbox
-                                                  onChange={handleChange}
+                                                  // onChange={handleChange}
                                                   value="bath,body & hygiene"
                                              >
                                                   <span className="checkboxtext">

@@ -29,7 +29,7 @@ const reducer = (state = initialState, action) => {
                return {
                     ...state,
                     isLoading: false,
-                    product: payload,
+                    product: payload?.data,
                };
           case GET_DATA_FAILURE:
                return { ...state, isLoading: false, isError: true };

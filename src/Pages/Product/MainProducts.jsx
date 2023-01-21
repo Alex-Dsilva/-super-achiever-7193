@@ -1,12 +1,40 @@
 import { Box, Text } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import ProdtctFilter from "./ProductFilter";
 import "./MainProducts.css";
 import dbData from "../../myData.json";
+import { getProduct } from "../../Redux/AppReducer/action";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router";
+import { useSearchParams } from "react-router-dom";
 const MainProducts = () => {
-     const [data, setData] = useState(dbData);
+     const location = useLocation();
+     const dispatch = useDispatch();
+     const { product } = useSelector((state) => state.Appreducer);
+     const [searchParams] = useSearchParams();
+     // const [data, setData] = useState(dbData);
      let [loder, setloader] = useState(false);
+
+     // useEffect(() => {
+     //      if (product?.length === 0) {
+     //           dispatch(getProduct());
+     //      }
+     // }, []);
+     // console.log("product:", product);
+
+     useEffect(() => {
+          if (location || product.length === 0) {
+               // const saleBy = searchParams.get("sale");
+               const getProductParams = {
+                    params: {
+                         productBrand: searchParams.getAll("productBrand"),
+                    },
+               };
+               console.log("getProductParams:", getProductParams);
+               dispatch(getProduct(getProductParams));
+          }
+     }, [location.search, product.length, dispatch]);
 
      return (
           <div>
@@ -39,11 +67,15 @@ const MainProducts = () => {
                                    w={"80%"}
                                    id="main_product"
                               >
-                                   {data?.map((ele, i) => {
-                                        return (
-                                             <ProductCard key={i} data={ele} />
-                                        );
-                                   })}
+                                   {product?.length > 0 &&
+                                        product?.map((ele, i) => {
+                                             return (
+                                                  <ProductCard
+                                                       key={i}
+                                                       data={ele}
+                                                  />
+                                             );
+                                        })}
                               </Box>
                          </Box>
                     )}
