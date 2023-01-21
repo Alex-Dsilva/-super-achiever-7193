@@ -1,19 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux';
-
-
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { Provider } from "react-redux";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { ChakraProvider } from "@chakra-ui/react";
+import { store } from "./Redux/store";
+import { BrowserRouter } from "react-router-dom";
+console.log("store:", store.getState().Appreducer);
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <ChakraProvider>
-    <Provider store={store}>
-    <App />
-    </Provider>
-  </ChakraProvider>
+     <BrowserRouter>
+          <ChakraProvider>
+               <Provider store={store}>
+                    <App />
+               </Provider>
+          </ChakraProvider>
+     </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
