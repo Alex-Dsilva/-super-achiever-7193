@@ -1,9 +1,15 @@
 import './App.css';
-import Home from './Pages/Home/Home'
+import Footer from './Components/Footer/Footer';
+import { Categories } from './Components/Navbar/Categries';
+import Navbar from './Components/Navbar/navbar';
+
+
 function App() {
   return (
     <div className="App">
-      <Home/>
+      <Navbar />
+      <Categories />
+      <Footer />
     </div>
   );
 }
