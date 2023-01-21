@@ -94,7 +94,7 @@ const ProductCard = ({ data }) => {
                               {brandname || productTitle}
                          </Text>
                          <Box>
-                              {/* <Productwishlist data={data} /> */}
+                            
                               {/* <AiFillHeart
               style={{ color: "rgb(255,15,88)", fontSize: "22px" }}
             /> */}
