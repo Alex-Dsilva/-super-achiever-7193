@@ -4,6 +4,8 @@ import React from 'react'
 import Slider from 'react-slick'
 import '../Home/home.css'
 import { motion } from 'framer-motion';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 
 const Home = () => {
@@ -76,8 +78,8 @@ function SamplePrevArrow(props) {
         </Slider>
         </Box>
         <Box  display='flex' mt='1cm' w='100%'>
-            {images.map((e)=>(
-                <Box key={e} cursor='pointer'>
+            {images.map((e,index)=>(
+                <Box key={index} cursor='pointer'>
                     <Image boxSize='138px' src={e.img} alt='wait'></Image>
                 </Box>
             ))}
@@ -176,9 +178,12 @@ function SamplePrevArrow(props) {
             <motion.div whileHover={{scale:1.1}}>
             <Image src='https://assets.tatacliq.com/medias/sys_master/images/45581156352030.jpg'></Image>
             </motion.div>
-
          </Slider>
          </Box>
+        </Box>
+        <Box display='flex'w='80%' margin='auto' mt='2cm' justifyContent='space-between' >
+         <Image src='https://assets.tatacliq.com/medias/sys_master/images/45619581747230.jpg' alt=''></Image>
+         <Image src='https://assets.tatacliq.com/medias/sys_master/images/45619578929182.jpg' alt=''></Image>
         </Box>
      </div>
     </>
