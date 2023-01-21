@@ -10,10 +10,10 @@ import {
     Text,
     useToast
   } from "@chakra-ui/react";
-  import { useState } from "react";
+  import { useContext,useState } from "react";
   
   import { Link,useNavigate } from "react-router-dom";
-
+  import axios from "axios";
   import { FcGoogle } from "react-icons/fc";
   import { BsFacebook } from "react-icons/bs";
 
@@ -23,7 +23,8 @@ import {
     const [name, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    
+    const navigateUser=useNavigate()
 
     const toast =useToast()
     const handleSubmit = (e) => {
@@ -35,7 +36,24 @@ import {
         
       }
       
-    }
+          axios.post("http://localhost:8080/users/register",payload).then((res)=>{
+        console.log(res.data);
+        toast({
+          title:res.data.msg
+        })
+        if(res.status===200){
+          navigateUser("/login")
+        }
+        else{
+          toast({
+            title:"Please Signup with correct credentials"
+          })
+        }
+        
+      })
+      // alert("SIGN UP SUCCESSFULL");
+    };
+  
 
   
     return (
