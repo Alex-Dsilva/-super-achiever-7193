@@ -25,7 +25,7 @@ const ProductCard = ({ data }) => {
 
           productNudgeMessage,
      } = data;
-     console.log("images", images);
+     // console.log("images", images);
      return (
           <div>
                <Box width="220px" height="auto" m={4}>
@@ -94,7 +94,6 @@ const ProductCard = ({ data }) => {
                               {brandname || productTitle}
                          </Text>
                          <Box>
-                            
                               {/* <AiFillHeart
               style={{ color: "rgb(255,15,88)", fontSize: "22px" }}
             /> */}

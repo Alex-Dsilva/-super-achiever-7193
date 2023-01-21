@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
      Accordion,
      AccordionItem,
@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { Checkbox, CheckboxGroup } from "@chakra-ui/react";
 import "./ProductFilter.css";
+import { getProduct } from "../../Redux/AppReducer/action";
 
 const ProdtctFilter = () => {
      const handleChange = () => {
@@ -17,6 +18,9 @@ const ProdtctFilter = () => {
      const handleChange1 = () => {
           //
      };
+     useEffect(() => {
+          getProduct();
+     });
      return (
           <div
                style={{
@@ -55,6 +59,8 @@ const ProdtctFilter = () => {
                     }}
                >
                     <Accordion defaultIndex={[0]} allowMultiple>
+                         {/* Department Accordion*/}
+
                          <AccordionItem id="div" mb="10px">
                               <h2>
                                    <AccordionButton>
@@ -151,6 +157,7 @@ const ProdtctFilter = () => {
                               </AccordionPanel>
                          </AccordionItem>
 
+                         {/* Brand Accordion*/}
                          <AccordionItem mb="10px">
                               <h2>
                                    <AccordionButton>
@@ -260,6 +267,7 @@ const ProdtctFilter = () => {
                                    </CheckboxGroup>
                               </AccordionPanel>
                          </AccordionItem>
+
                          <AccordionItem display="none" mb="10px">
                               <h2>
                                    <AccordionButton>
