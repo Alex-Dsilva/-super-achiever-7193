@@ -1,0 +1,71 @@
+[
+  {
+    "brandname": "Melange by Lifestyle",
+    "productname": "Melange by Lifestyle Grey Printed Straight Kurta",
+    "imageURL": "//img.tatacliq.com/images/i9/437Wx649H/MP000000015842273_437Wx649H_202212250811511.jpeg",
+    "productCategory": "Apparel",
+    "galleryImages": [
+      {
+        "value": "//img.tatacliq.com/images/i9/437Wx649H/MP000000015842273_437Wx649H_202212250811511.jpeg",
+        "key": "product"
+      }
+    ],
+    "isOffer": false,
+    "newProduct": false,
+    "discountPercent": "30",
+    "price": 1119.0,
+    "mrpPrice": "₹1599.00",
+    "rating": 5.0,
+    "ratingCount": 1,
+    "webURL": "/melange-by-lifestyle-grey-printed-straight-kurta/p-mp000000015842280",
+    "reviewUrl": "/melange-by-lifestyle-grey-printed-straight-kurta/p-mp000000015842280/product-reviews",
+    "productTitle": "Melange by Lifestyle Grey Printed Straight Kurta",
+    "productNudgeMessage": "Low stock!"
+  },
+  {
+    "brandname": "Melange by Lifestyle",
+    "productname": "Melange by Lifestyle Grey Printed Straight Kurta",
+    "imageURL": "//img.tatacliq.com/images/i9/437Wx649H/MP000000015842273_437Wx649H_202212250811511.jpeg",
+    "productCategory": "Apparel",
+    "galleryImages": [
+      {
+        "value": "//img.tatacliq.com/images/i9/437Wx649H/MP000000015842273_437Wx649H_202212250811511.jpeg",
+        "key": "product"
+      }
+    ],
+    "isOffer": true,
+    "newProduct": false,
+    "discountPercent": "30",
+    "price": 1119.0,
+    "mrpPrice": "₹1599.00",
+    "rating": 5.0,
+    "ratingCount": 1,
+    "webURL": "/melange-by-lifestyle-grey-printed-straight-kurta/p-mp000000015842280",
+    "reviewUrl": "/melange-by-lifestyle-grey-printed-straight-kurta/p-mp000000015842280/product-reviews",
+    "productTitle": "Melange by Lifestyle Grey Printed Straight Kurta",
+    "productNudgeMessage": "Limited stock!"
+  },
+  {
+    "brandname": "Melange by Lifestyle",
+    "productname": "Melange by Lifestyle Grey Printed Straight Kurta",
+    "imageURL": "//img.tatacliq.com/images/i9/437Wx649H/MP000000015842273_437Wx649H_202212250811511.jpeg",
+    "productCategory": "Apparel",
+    "galleryImages": [
+      {
+        "value": "//img.tatacliq.com/images/i9/437Wx649H/MP000000015842273_437Wx649H_202212250811511.jpeg",
+        "key": "product"
+      }
+    ],
+    "isOffer": false,
+    "newProduct": true,
+    "discountPercent": "30",
+    "price": 1119.0,
+    "mrpPrice": "₹1599.00",
+    "rating": 5.0,
+    "ratingCount": 1,
+    "webURL": "/melange-by-lifestyle-grey-printed-straight-kurta/p-mp000000015842280",
+    "reviewUrl": "/melange-by-lifestyle-grey-printed-straight-kurta/p-mp000000015842280/product-reviews",
+    "productTitle": "Melange by Lifestyle Grey Printed Straight Kurta",
+    "productNudgeMessage": ""
+  }
+]
