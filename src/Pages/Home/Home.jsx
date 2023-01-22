@@ -63,7 +63,7 @@ function SamplePrevArrow(props) {
 
   return (
     <>
-     <div>
+     <div id="mainhome">
        <Box w='100%' mt='4cm'>
         <Slider {...settings}>
            
