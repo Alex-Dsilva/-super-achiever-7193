@@ -9,7 +9,6 @@ import "slick-carousel/slick/slick-theme.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import { store } from "./Redux/store";
 import { BrowserRouter } from "react-router-dom";
-console.log("store:", store.getState().Appreducer);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
      <BrowserRouter>
