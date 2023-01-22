@@ -2,7 +2,6 @@ import axios from "axios";
 import * as types from "./actiontypes";
 const getProduct = (params) => (dispatch) => {
      dispatch({ type: types.GET_DATA_REQUEST });
-     console.log("params:", params);
      return axios
           .get("http://localhost:8080/product", params)
           .then((res) =>

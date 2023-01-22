@@ -22,7 +22,6 @@ const ProdtctFilter = () => {
 
      const handleChange = (e) => {
           const newProductBrand = [...productBrand];
-          // console.log("newProductBrand", newProductBrand);
           if (newProductBrand.includes(e.target.value)) {
                newProductBrand.splice(
                     newProductBrand.indexOf(e.target.value),
@@ -37,7 +36,6 @@ const ProdtctFilter = () => {
      useEffect(() => {
           let params = {};
           params.productBrand = productBrand;
-          console.log("params", params);
           setSearchParams(params);
      }, [productBrand, setSearchParams]);
 
@@ -80,102 +78,6 @@ const ProdtctFilter = () => {
                >
                     <Accordion defaultIndex={[0]} allowMultiple>
                          {/* Department Accordion*/}
-
-                         {/* <AccordionItem id="div" mb="10px">
-                              <h2>
-                                   <AccordionButton>
-                                        <Box flex="1" textAlign="left">
-                                             <p className="filterhead">
-                                                  Department
-                                             </p>
-                                        </Box>
-                                        <AccordionIcon />
-                                   </AccordionButton>
-                              </h2>
-                              <AccordionPanel pb={4}>
-                                   <CheckboxGroup colorScheme="green">
-                                        <Box
-                                             display="flex"
-                                             flexDirection="column"
-                                             spacing={[1, 5]}
-                                             direction={["column", "row"]}
-                                        >
-                                             <Checkbox
-                                                  onChange={handleChange}
-                                                  value="footwear"
-                                             >
-                                                  <span className="checkboxtext">
-                                                       Footwear
-                                                  </span>
-                                             </Checkbox>
-                                             <Checkbox
-                                                  onChange={handleChange}
-                                                  value="electronics"
-                                             >
-                                                  <span className="checkboxtext">
-                                                       Electronics
-                                                  </span>
-                                             </Checkbox>
-                                             <Checkbox
-                                                  onChange={handleChange}
-                                                  value="beauty & grooming"
-                                             >
-                                                  <span className="checkboxtext">
-                                                       beauty & grooming
-                                                  </span>
-                                             </Checkbox>
-                                             <Checkbox
-                                                  onChange={handleChange}
-                                                  value="eyewear"
-                                             >
-                                                  <span className="checkboxtext">
-                                                       eyewear
-                                                  </span>
-                                             </Checkbox>
-                                             <Checkbox
-                                                  onChange={handleChange}
-                                                  value="Men's Clothing"
-                                             >
-                                                  <span className="checkboxtext">
-                                                       Men's Clothing
-                                                  </span>
-                                             </Checkbox>
-                                             <Checkbox
-                                                  onChange={handleChange}
-                                                  value="Electronics"
-                                             >
-                                                  <span className="checkboxtext">
-                                                       Gadgets
-                                                  </span>
-                                             </Checkbox>
-                                             <Checkbox
-                                                  onChange={handleChange}
-                                                  value="Kids"
-                                             >
-                                                  <span className="checkboxtext">
-                                                       Kids
-                                                  </span>
-                                             </Checkbox>
-                                             <Checkbox
-                                                  onChange={handleChange}
-                                                  value="Home"
-                                             >
-                                                  <span className="checkboxtext">
-                                                       Home
-                                                  </span>
-                                             </Checkbox>
-                                             <Checkbox
-                                                  onChange={handleChange}
-                                                  value="Beauty & Grooming"
-                                             >
-                                                  <span className="checkboxtext">
-                                                       Beauty & Grooming
-                                                  </span>
-                                             </Checkbox>
-                                        </Box>
-                                   </CheckboxGroup>
-                              </AccordionPanel>
-                         </AccordionItem> */}
 
                          {/* Brand Accordion*/}
                          <AccordionItem mb="10px">
@@ -400,6 +302,101 @@ const ProdtctFilter = () => {
                                              >
                                                   <span className="checkboxtext">
                                                        Ustraa
+                                                  </span>
+                                             </Checkbox>
+                                        </Box>
+                                   </CheckboxGroup>
+                              </AccordionPanel>
+                         </AccordionItem>
+                         <AccordionItem id="div" mb="10px">
+                              <h2>
+                                   <AccordionButton>
+                                        <Box flex="1" textAlign="left">
+                                             <p className="filterhead">
+                                                  Department
+                                             </p>
+                                        </Box>
+                                        <AccordionIcon />
+                                   </AccordionButton>
+                              </h2>
+                              <AccordionPanel pb={4}>
+                                   <CheckboxGroup colorScheme="green">
+                                        <Box
+                                             display="flex"
+                                             flexDirection="column"
+                                             spacing={[1, 5]}
+                                             direction={["column", "row"]}
+                                        >
+                                             <Checkbox
+                                                  onChange={handleChange}
+                                                  value="footwear"
+                                             >
+                                                  <span className="checkboxtext">
+                                                       Footwear
+                                                  </span>
+                                             </Checkbox>
+                                             <Checkbox
+                                                  onChange={handleChange}
+                                                  value="electronics"
+                                             >
+                                                  <span className="checkboxtext">
+                                                       Electronics
+                                                  </span>
+                                             </Checkbox>
+                                             <Checkbox
+                                                  onChange={handleChange}
+                                                  value="beauty & grooming"
+                                             >
+                                                  <span className="checkboxtext">
+                                                       beauty & grooming
+                                                  </span>
+                                             </Checkbox>
+                                             <Checkbox
+                                                  onChange={handleChange}
+                                                  value="eyewear"
+                                             >
+                                                  <span className="checkboxtext">
+                                                       eyewear
+                                                  </span>
+                                             </Checkbox>
+                                             <Checkbox
+                                                  onChange={handleChange}
+                                                  value="Men's Clothing"
+                                             >
+                                                  <span className="checkboxtext">
+                                                       Men's Clothing
+                                                  </span>
+                                             </Checkbox>
+                                             <Checkbox
+                                                  onChange={handleChange}
+                                                  value="Electronics"
+                                             >
+                                                  <span className="checkboxtext">
+                                                       Gadgets
+                                                  </span>
+                                             </Checkbox>
+                                             <Checkbox
+                                                  onChange={handleChange}
+                                                  value="Kids"
+                                             >
+                                                  <span className="checkboxtext">
+                                                       Kids
+                                                  </span>
+                                             </Checkbox>
+                                             <Checkbox
+                                                  onChange={handleChange}
+                                                  value="Home"
+                                             >
+                                                  <span className="checkboxtext">
+                                                       Home
+                                                  </span>
+                                             </Checkbox>
+                                             <Checkbox
+                                                  onChange={handleChange}
+                                                  value="Beauty & Grooming"
+                                             >
+                                                  <span className="checkboxtext">
+                                                       Beauty & Grooming
                                                   </span>
                                              </Checkbox>
                                         </Box>
