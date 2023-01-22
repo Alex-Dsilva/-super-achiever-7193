@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { Checkbox, CheckboxGroup } from "@chakra-ui/react";
 import "./ProductFilter.css";
-import { useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 const ProdtctFilter = () => {
      const [searchParams, setSearchParams] = useSearchParams();
