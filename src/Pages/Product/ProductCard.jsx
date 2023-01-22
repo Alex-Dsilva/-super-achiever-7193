@@ -1,16 +1,16 @@
 import React from "react";
-import { Box, Image, Badge, Text } from "@chakra-ui/react";
+import { Box, Image, Text } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-// import Productwishlist from "./Productwishlist";
-// import { Link } from "react-router-dom";
+
 import "./ProductCard.css";
 import discounttag from "./discounttag.png";
 import newPic from "./originalnew.png";
 import offerPic from "./4545.png";
+import { Link } from "react-router-dom";
 const ProductCard = ({ data }) => {
      const {
-          brandname,
+          productBrand,
           productname,
           images,
           isOffer,
@@ -20,64 +20,60 @@ const ProductCard = ({ data }) => {
           newProduct,
           rating,
           ratingCount,
-
-          productTitle,
-
-          productNudgeMessage,
+          productNudgeMessage = "only few avilable",
      } = data;
-     // console.log("images", images);
      return (
           <div>
                <Box width="220px" height="auto" m={4}>
-                    {/* <Link to={`/products/${data.id}`}> */}
-                    {/* IMAGE DIV START */}
-                    <Box position={"relative"} className="imagecard">
-                         <Image
-                              style={{ borderRadius: "10px" }}
-                              width="100%"
-                              src={images[0].url}
-                              alt="imageURL"
-                         />
-                         <Box>
+                    <Link to={`/singleproduct/${data._id}`}>
+                         {/* IMAGE DIV START */}
+                         <Box position={"relative"} className="imagecard">
                               <Image
-                                   position={"absolute"}
-                                   top="5%"
-                                   width={"32%"}
-                                   left="-1%"
-                                   src={
-                                        !newProduct && !isOffer
-                                             ? discounttag
-                                             : newProduct
-                                             ? newPic
-                                             : isOffer
-                                             ? offerPic
-                                             : newProduct
-                                   }
+                                   style={{ borderRadius: "10px" }}
+                                   width="100%"
+                                   src={images[0].url}
+                                   alt="imageURL"
                               />
-                              <Text
-                                   fontSize={"12px"}
-                                   fontWeight="bold"
-                                   color="#fff"
-                                   position={"absolute"}
-                                   top="7%"
-                                   width={"32%"}
-                                   left="-1%"
-                                   textAlign="center"
-                                   display={
-                                        !newProduct && !isOffer
-                                             ? null
-                                             : newProduct
-                                             ? "none"
-                                             : isOffer
-                                             ? "none"
-                                             : null
-                                   }
-                              >
-                                   {discountPercent}% off
-                              </Text>
+                              <Box>
+                                   <Image
+                                        position={"absolute"}
+                                        top="5%"
+                                        width={"32%"}
+                                        left="-1%"
+                                        src={
+                                             !newProduct && !isOffer
+                                                  ? discounttag
+                                                  : newProduct
+                                                  ? newPic
+                                                  : isOffer
+                                                  ? offerPic
+                                                  : newProduct
+                                        }
+                                   />
+                                   <Text
+                                        fontSize={"12px"}
+                                        fontWeight="bold"
+                                        color="#fff"
+                                        position={"absolute"}
+                                        top="7%"
+                                        width={"32%"}
+                                        left="-1%"
+                                        textAlign="center"
+                                        display={
+                                             !newProduct && !isOffer
+                                                  ? null
+                                                  : newProduct
+                                                  ? "none"
+                                                  : isOffer
+                                                  ? "none"
+                                                  : null
+                                        }
+                                   >
+                                        {discountPercent}% off
+                                   </Text>
+                              </Box>
                          </Box>
-                    </Box>
-                    {/* </Link> */}
+                    </Link>
                     {/* IMAGE DIV END */}
 
                     {/* PRODUCT BRAND START */}
@@ -91,7 +87,7 @@ const ProductCard = ({ data }) => {
                               fontWeight="500"
                               fontSize={"16px"}
                          >
-                              {brandname || productTitle}
+                              {productBrand}
                          </Text>
                          <Box>
                               {/* <AiFillHeart
@@ -189,7 +185,11 @@ const ProductCard = ({ data }) => {
                               fontSize={"14px"}
                               fontWeight={500}
                          >
-                              {productNudgeMessage}
+                              {isOffer
+                                   ? "on sale"
+                                   : newProduct
+                                   ? "limited stock"
+                                   : productNudgeMessage}
                          </Text>
                     </Box>
                     {/* Stock status end */}

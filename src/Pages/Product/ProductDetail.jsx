@@ -12,11 +12,13 @@ import {
      AccordionIcon,
 } from "@chakra-ui/react";
 import "./ProductDetails.css";
-// import { useToast } from "@chakra-ui/react";
 import { AiFillHeart } from "react-icons/ai";
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getProduct } from "../../Redux/AppReducer/action";
 
-const obj = {
+const obj2 = {
      isOffer: false,
      newProduct: false,
      ratingCount: 0,
@@ -53,14 +55,31 @@ const obj = {
 };
 
 const ProductDetail = () => {
-     // const { id } = useParams();
-     let [data1, setdata1] = useState([]);
+     const { id } = useParams();
+     const dispatch = useDispatch();
+     console.log("_id:", id);
+     let [obj, setObj] = useState([]);
      let [disabled, setDisable] = useState(false);
 
-     const addtowish = async (value) => {};
-     // localhost:8080/product/singleProduct/${id}
-     const handleAddToCart = async (value) => {};
+     const { product } = useSelector((state) => state.Appreducer);
 
+     useEffect(() => {
+          if (product.length === 0) {
+               dispatch(getProduct());
+          }
+     }, []);
+     useEffect(() => {
+          if (id) {
+               const products = product.find((item) => item._id == id);
+               products && setObj(products);
+               console.log("products:", products);
+          }
+     }, [id, product]);
+
+     const addtowish = async (value) => {};
+     // // localhost:8080/product/singleProduct/${id}
+     const handleAddToCart = async (value) => {};
+     console.log("image:", obj?.images);
      return (
           <div>
                <Box backgroundColor={"rgb(236,236,236)"}>
@@ -77,7 +96,11 @@ const ProductDetail = () => {
                                              borderRadius={"5px"}
                                              display="block"
                                              margin="auto"
-                                             src={obj.images[0].url}
+                                             src={
+                                                  obj?.images != undefined
+                                                       ? obj?.images[0].url
+                                                       : "loading..."
+                                             }
                                         />
                                         <Image
                                              position={"absolute"}
@@ -110,7 +133,7 @@ const ProductDetail = () => {
                                                        fontFamily="Rubik, sans-serif"
                                                        color="#181818"
                                                   >
-                                                       {"brand"}
+                                                       {obj.productBrand}
                                                   </Heading>
                                                   <Box
                                                        backgroundColor={
@@ -995,13 +1018,13 @@ const ProductDetail = () => {
                          </Box>
 
                          <Box>
-                              {data1?.map((el) => {
+                              {/* {data1?.map((el) => {
                                    return (
                                         <div className="mapD">
                                              <img src={el.img} alt="" />
                                         </div>
                                    );
-                              })}
+                              })} */}
                          </Box>
                     </Box>
                </Box>
