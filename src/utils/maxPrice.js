@@ -1,0 +1,17 @@
+export const maxPrice = [
+     { label: "$1000+", value: "$1000+" },
+     { label: "$900", value: "$900" },
+     { label: "$800", value: "$800" },
+     { label: "$700", value: "$700" },
+     { label: "$600", value: "$600" },
+     { label: "$500", value: "$500" },
+     { label: "$450", value: "$450" },
+     { label: "$400", value: "$400" },
+     { label: "$350", value: "$350" },
+     { label: "$300", value: "$300" },
+     { label: "$250", value: "$250" },
+     { label: "$200", value: "$200" },
+     { label: "$150", value: "$150" },
+     { label: "$100", value: "$100" },
+     { label: "$50", value: "$50" },
+];
