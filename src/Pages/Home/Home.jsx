@@ -1,5 +1,5 @@
 import { ChevronRightIcon } from '@chakra-ui/icons';
-import { Box, Button, Circle, Image, Text } from '@chakra-ui/react';
+import { Box, Button, Circle, Image, SimpleGrid, Text } from '@chakra-ui/react';
 import React from 'react'
 import Slider from 'react-slick'
 import '../Home/home.css'
@@ -43,15 +43,13 @@ function SamplePrevArrow(props) {
   }
     const settings = {
        dots:true,
-        arrows:true,
-        nextArrow:<SamplePrevArrow/>,
+       arrows:false,
+       // nextArrow:<SamplePrevArrow/>,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1
       };
-
-
 
       const settingsone = {
         infinite: true,
@@ -61,7 +59,6 @@ function SamplePrevArrow(props) {
         slidesToScroll: 1
       };
 
-      
 
   return (
     <>
@@ -77,16 +74,16 @@ function SamplePrevArrow(props) {
             <img src='https://assets.tatacliq.com/medias/sys_master/images/45605712035870.jpg'  alt='sl'></img>
         </Slider>
         </Box>
-        <Box  display='flex' mt='1cm' w='100%'>
+        <SimpleGrid columns={[5,8,11]} mt='1cm' w='100%'>
             {images.map((e,index)=>(
                 <Box key={index} cursor='pointer'>
                     <Image boxSize='138px' src={e.img} alt='wait'></Image>
                 </Box>
             ))}
-        </Box>
-        <Box margin='auto' w='19cm' mt='1cm'display='flex'>
-            <Image src='https://assets.tatacliq.com/medias/sys_master/images/45451412570142.jpg'></Image>
-            <Image ml='10px' src='https://assets.tatacliq.com/medias/sys_master/images/45433290981406.jpg'></Image>
+        </SimpleGrid>
+        <Box margin='auto' w='55%' mt='1cm'display='flex' justifyContent='space-around' >
+            <Image w={{base:"5cm",md:'45%',lg:'45%'}}  src='https://assets.tatacliq.com/medias/sys_master/images/45451412570142.jpg'></Image>
+            <Image w={{base:"5cm",md:'45%',lg:'45%'}} src='https://assets.tatacliq.com/medias/sys_master/images/45433290981406.jpg'></Image>
         </Box>
 
         <Box margin='auto' w='70%'  > 
@@ -114,10 +111,10 @@ function SamplePrevArrow(props) {
          </Box>
         </Box>
         <Box margin='auto'>
-         <Button mt='2cm' w='14cm' h='2cm' bgColor='#ffcc99' fontSize='2rem' borderRadius='40px'>
+         <Button mt='2cm' w='30%' py={{base:'10px',md:'20px',lg:'30px'}} bgColor='#ffcc99' px={{base:'20px'}} fontSize={{base:'1rem',md:'1.2rem',lg:'2rem'}}borderRadius='40px'>
             DEALS WHEEL
          </Button>
-         <Text fontSize='1.5rem' fontWeight='medium'>Grab thede before they're gone</Text>
+         <Text fontSize={{base:'1.2rem',md:'1.2rem',lg:'1.5rem'}} fontWeight='medium'>Grab thede before they're gone</Text>
         </Box>
         <Box margin='auto' w='70%'  > 
         <Box mt='2cm'w='full' justifyContent='space-around'>
@@ -145,16 +142,16 @@ function SamplePrevArrow(props) {
          </Box>
         </Box>
         <Box margin='auto'>
-         <Button mt='2cm' w='14cm' h='2cm' bgColor='#ffcc99' fontSize='2rem' borderRadius='40px'>
-            NEW ON CLIQ
+        <Button mt='2cm' w='30%' py={{base:'10px',md:'20px',lg:'30px'}} bgColor='#ffcc99' px={{base:'20px'}} fontSize={{base:'1rem',md:'1.2rem',lg:'2rem'}}borderRadius='40px'>
+           OnClick
          </Button>
-         <Text fontSize='1.5rem' fontWeight='medium'>Fresh PIQ'S to choose from</Text>
+         <Text fontSize={{base:'1.2rem',md:'1.2rem',lg:'1.5rem'}} fontWeight='medium'>Fresh PIQ'S to choose from</Text>
         </Box>
         <Box w='100%' mt='2cm'>
         <Image w='full' src='https://assets.tatacliq.com/medias/sys_master/images/45605721473054.gif' alt='welcome'></Image>
         </Box>
         <Box w='70%' margin='auto' mt='1.5cm'>
-         <Image src='https://assets.tatacliq.com/medias/sys_master/images/45032248639518.jpg' alt='loading'></Image>
+         <Image  src='https://assets.tatacliq.com/medias/sys_master/images/45032248639518.jpg' alt='loading'></Image>
         </Box>
 
         <Box margin='auto' w='70%'  > 
@@ -181,9 +178,9 @@ function SamplePrevArrow(props) {
          </Slider>
          </Box>
         </Box>
-        <Box display='flex'w='80%' margin='auto' mt='2cm' justifyContent='space-between' >
-         <Image src='https://assets.tatacliq.com/medias/sys_master/images/45619581747230.jpg' alt=''></Image>
-         <Image src='https://assets.tatacliq.com/medias/sys_master/images/45619578929182.jpg' alt=''></Image>
+        <Box display='flex 'w='70%' margin='auto' mt='2cm' justifyContent='space-around' >
+         <Image boxSize={{base:'120px',md:'220px',lg:'540px'}} src='https://assets.tatacliq.com/medias/sys_master/images/45619581747230.jpg' alt=''></Image>
+         <Image  boxSize={{base:'120px',md:'220px',lg:'540px'}} src='https://assets.tatacliq.com/medias/sys_master/images/45619578929182.jpg' alt=''></Image>
         </Box>
      </div>
     </>
