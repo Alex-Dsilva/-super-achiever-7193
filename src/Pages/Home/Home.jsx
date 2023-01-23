@@ -81,68 +81,41 @@ const Home = () => {
           slidesToScroll: 1,
      };
 
-     const settingsone = {
-          infinite: true,
+      const settingsone = {
+        infinite: true,
+      
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 1
+      };
 
-          speed: 500,
-          slidesToShow: 4,
-          slidesToScroll: 1,
-     };
+      
 
-     return (
-          <>
-               <div className="myDiv">
-                    <Box w="100%" mt="4cm">
-                         <Slider {...settings}>
-                              <img
-                                   position="absolute"
-                                   src="https://assets.tatacliq.com/medias/sys_master/images/45581158940702.jpg"
-                                   alt="sl"
-                              />
-                              <img
-                                   position="relative"
-                                   src="https://assets.tatacliq.com/medias/sys_master/images/45581159006238.jpg"
-                                   alt="sl"
-                              ></img>
-                              <img
-                                   position="relative"
-                                   src="https://assets.tatacliq.com/medias/sys_master/images/45584593518622.gif"
-                                   alt="sl"
-                              ></img>
-                              <img
-                                   position="relative"
-                                   src="https://assets.tatacliq.com/medias/sys_master/images/45554503090206.jpg"
-                                   alt="sl"
-                              ></img>
-                              <img
-                                   position="relative"
-                                   src="https://assets.tatacliq.com/medias/sys_master/images/45581158809630.jpg"
-                                   alt="sl"
-                              ></img>
-                              <img
-                                   src="https://assets.tatacliq.com/medias/sys_master/images/45605712035870.jpg"
-                                   alt="sl"
-                              ></img>
-                         </Slider>
-                    </Box>
-                    <Box display="flex" mt="1cm" w="100%">
-                         {images.map((e) => (
-                              <Box key={e} cursor="pointer">
-                                   <Image
-                                        boxSize="138px"
-                                        src={e.img}
-                                        alt="wait"
-                                   ></Image>
-                              </Box>
-                         ))}
-                    </Box>
-                    <Box margin="auto" w="19cm" mt="1cm" display="flex">
-                         <Image src="https://assets.tatacliq.com/medias/sys_master/images/45451412570142.jpg"></Image>
-                         <Image
-                              ml="10px"
-                              src="https://assets.tatacliq.com/medias/sys_master/images/45433290981406.jpg"
-                         ></Image>
-                    </Box>
+  return (
+    <>
+     <div id="mainhome">
+       <Box w='100%' mt='4cm'>
+        <Slider {...settings}>
+           
+            <img   position='absolute' src='https://assets.tatacliq.com/medias/sys_master/images/45581158940702.jpg' alt='sl'/>
+            <img  position='relative' src='https://assets.tatacliq.com/medias/sys_master/images/45581159006238.jpg' alt='sl'></img>
+            <img  position='relative' src='https://assets.tatacliq.com/medias/sys_master/images/45584593518622.gif' alt='sl'></img>
+            <img  position='relative' src='https://assets.tatacliq.com/medias/sys_master/images/45554503090206.jpg' alt='sl'></img>
+            <img  position='relative' src='https://assets.tatacliq.com/medias/sys_master/images/45581158809630.jpg' alt='sl'></img>
+            <img src='https://assets.tatacliq.com/medias/sys_master/images/45605712035870.jpg'  alt='sl'></img>
+        </Slider>
+        </Box>
+        <Box  display='flex' mt='1cm' w='100%'>
+            {images.map((e)=>(
+                <Box key={e} cursor='pointer'>
+                    <Image boxSize='138px' src={e.img} alt='wait'></Image>
+                </Box>
+            ))}
+        </Box>
+        <Box margin='auto' w='19cm' mt='1cm'display='flex'>
+            <Image src='https://assets.tatacliq.com/medias/sys_master/images/45451412570142.jpg'></Image>
+            <Image ml='10px' src='https://assets.tatacliq.com/medias/sys_master/images/45433290981406.jpg'></Image>
+        </Box>
 
                     <Box margin="auto" w="70%">
                          <Box mt="2cm" w="full" justifyContent="space-around">
