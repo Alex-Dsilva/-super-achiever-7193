@@ -1,18 +1,19 @@
-import "./App.css";
-import ProductPage from "./Page/ProductPage";
 import './App.css';
 import MainRoutes from './Pages/MainRoutes'
-
+import Navbar from "./Components/Navbar/Navbar";
+import Footer from './Components/Footer/Footer';
 
 
 
 
 function App() {
-     return (
-          <div className="App">
-              <MainRoutes/> 
-          </div>
-     );
+  return (
+    <div className="App">
+      <Navbar />
+      <MainRoutes/> 
+      <Footer />
+    </div>
+  );
 }
 
 export default App;

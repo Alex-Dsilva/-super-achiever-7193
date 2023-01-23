@@ -20,7 +20,7 @@ const CartNav = () => {
 
 const NavigationContainer = styled.div`
   // border: 1px solid black;
-  padding: 5px 3%;
+  padding: 5px 3%;  
   margin: auto auto 20px auto;
   display: flex;
   justify-content: space-between;

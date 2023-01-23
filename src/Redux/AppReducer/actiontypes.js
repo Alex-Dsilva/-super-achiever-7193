@@ -1,3 +1,4 @@
+
 export const GET_DATA='GET_DATA'
 export const ERROR_DATA='ERROR_DATA'
 export const LOAD_DATA='LOAD_DATA'
@@ -13,4 +14,10 @@ export const REMOVE_WISHLIST_ITEM = "REMOVE_WISHLIST_ITEM";
 export const ADD_TO_WISHLIST = "ADD_TO_WISHLIST";
 
 export const UPDATE_ADDRESS = "UPDATE_ADDRESS";
+
+
+export const GET_DATA_REQUEST = "GET_DATA_REQUEST";
+export const GET_DATA_SUCCESS = "GET_DATA_SUCCESS";
+export const GET_DATA_FAILURE = "GET_DATA_FAILURE";
+
 
