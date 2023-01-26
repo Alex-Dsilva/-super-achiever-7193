@@ -31,7 +31,7 @@ export const removeFromCart = (payload) => {
   
   export const addToCart = async (payload) => {
 
-    const { data } = await axios.get(`https://mysterious-blue-moth.cyclic.app/product/singleProduct/${id}`);
+    const { data } = await axios.get(`https://mysterious-blue-moth.cyclic.app/product/singleProduct/${payload}`);
     return {
       type: types.ADD_CART_ITEM,
       payload: {
@@ -40,7 +40,7 @@ export const removeFromCart = (payload) => {
         price: data.product.price,
         image: data.product.images[0].url,
         stock: data.product.Stock,
-        quantity,
+        quantity:data.product.quantity,
       },
     };
   };
