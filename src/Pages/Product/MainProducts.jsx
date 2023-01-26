@@ -25,7 +25,7 @@ const MainProducts = () => {
                };
                dispatch(getProduct(getProductParams));
           }
-     }, [location.search, product.length, dispatch]);
+     }, [location.search, product?.length, dispatch]);
 
      return (
           <div>
